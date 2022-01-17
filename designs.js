@@ -1,16 +1,20 @@
 (function() {
-    //Set Vars
+    //This sets the variables
+    //sizePicker will set the size of the grid
+    //colorPicker will set the colors
+    //pixelCanvas will create the grid
     const $sizePicker = document.getElementById("sizePicker");
     const $colorPicker = document.getElementById("colorPicker");
     const $pixelCanvas = document.getElementById("pixelCanvas");
-    //Size Listeners Prevent Refresh
+    //Size listeners for picking the size of the grid 
+    //event.preventDefault will stop the page from reloading
     $sizePicker.addEventListener('submit', function() {
         event.preventDefault();
         let height = document.getElementById("inputHeight").value;
         let width = document.getElementById("inputWidth").value;
         makeGrid(width, height);
     })
-    //Canvas
+    //This makes the canvas grid for the colors
     function makeGrid(width, height) {
         $pixelCanvas.innerHTML = '';
         for (let line = 0; line < height; line++) {
@@ -21,7 +25,7 @@
             }
         }
     }
-    //Change Colors
+    //This function changes a selected grid to the picked color
     function colors() {
         this.style.background = $colorPicker.value;
     }
